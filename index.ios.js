@@ -20,7 +20,12 @@
 
         this._listenWebViewLoadStarted();
         if(src){
-            this.webView.src = src;
+            if (this.isUsingWKWebView) {
+               this.webView.loadHTMLString(src);
+            } else {
+               this.webView.src = src;
+            }
+
         }
     }
     
