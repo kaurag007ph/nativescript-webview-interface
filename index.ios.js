@@ -21,7 +21,7 @@
         this._listenWebViewLoadStarted();
         if(src){
             if (this.isUsingWKWebView) {
-               this.webView.loadHTMLString(src);
+               this.webView.ios.loadHTMLString(src);
             } else {
                this.webView.src = src;
             }
