@@ -21,7 +21,7 @@
         this._listenWebViewLoadStarted();
         if(src){
             if (this.isUsingWKWebView) {
-             var url = fs.path.join(fs.knownFolders.currentApp().path, url.replace('~/', ''));
+             var url = fs.path.join(fs.knownFolders.currentApp().path, src.replace('~/', ''));
              var myURL = NSURL.fileURLWithPath(url);
              this.webView.ios.loadFileURLAllowingReadAccessToURL(myURL, myURL);
             } else {
