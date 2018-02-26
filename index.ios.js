@@ -1,5 +1,5 @@
  var common = require("./index-common");
- 
+ var fs = require("tns-core-modules/file-system");
  /**
   * iOS specific WebViewInterface Class 
   */ 
@@ -21,7 +21,9 @@
         this._listenWebViewLoadStarted();
         if(src){
             if (this.isUsingWKWebView) {
-               this.webView.loadUrl(src);
+             var url = fs.path.join(fs.knownFolders.currentApp().path, url.replace('~/', ''));
+             var myURL = NSURL.fileURLWithPath(url);
+             this.webView.ios.loadFileURLAllowingReadAccessToURL(myURL, myURL);
             } else {
                this.webView.src = src;
             }
